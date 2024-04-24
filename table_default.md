@@ -10,6 +10,7 @@ SELECT
     formatReadableSize(sum(bytes)) as size
 FROM system.parts
 WHERE table = '$topic'
+FORMAT JSON;
 ```
 
 
