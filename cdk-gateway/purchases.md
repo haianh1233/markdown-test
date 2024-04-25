@@ -4,7 +4,7 @@ SELECT
     count(*) as total
 FROM `local-kafka`.purchases
 GROUP BY _batch_compression_type
-FORMAT json
+FORMAT JSON;
 ```
 
 
