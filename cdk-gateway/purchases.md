@@ -8,10 +8,6 @@ FORMAT JSON
 ```
 
 
-<DataTable value={compression_type}>
-    <Column field="type" header="Compression"></Column>
-    <Column field="total" header="Total"></Column>
-</DataTable>
 
 
 
@@ -22,9 +18,18 @@ FROM `local-kafka`.purchases
 FORMAT JSON
 ```
 
+<Flex>
+
+<DataTable value={compression_type}>
+    <Column field="type" header="Compression"></Column>
+    <Column field="total" header="Total"></Column>
+</DataTable>
+
 <Statistic
         data={avg_batch_record_size}
         title='Number'
         value=avg
     >
 </Statistic>
+
+</Flex>
