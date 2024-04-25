@@ -4,8 +4,7 @@ SELECT
     formatReadableSize(sum(bytes)) as size
 FROM system.parts
 WHERE active AND database != 'system'
-GROUP BY table
-FORMAT JSON;
+GROUP BY table;
 ```
 
 

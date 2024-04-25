@@ -14,15 +14,13 @@ FROM (
              database,
              table
      ) 
-FORMAT JSON
 ```
 
 ```sql gbs_count
 SELECT
     ROUND(sum(bytes) / 1073741824, 5) AS gbs_count
 FROM clusterAllReplicas(default, system.parts)
-WHERE active
-FORMAT JSON;
+WHERE active;
 ```
 
 ```sql last_query_count
@@ -42,7 +40,7 @@ FROM (
         event_time_m,
         client_name,
         query_kind
-) AS grouped_results FORMAT JSON;
+) AS grouped_results ;   
 ```
 
 # Global overview of your cluster
@@ -78,7 +76,7 @@ WHERE (query_kind = 'Select') AND (type != 'QueryStart')
   AND (event_time >= parseDateTimeBestEffort('$start_date'))
   AND (event_time <= parseDateTimeBestEffort('$end_date'))
 GROUP BY event_time_m
-ORDER BY event_time_m ASC FORMAT JSON;
+ORDER BY event_time_m ASC ;
 ```
 
 
@@ -105,8 +103,7 @@ ORDER BY event_time_m ASC FORMAT JSON;
 SELECT * FROM system.query_log
 WHERE (event_time >= parseDateTimeBestEffort('$start_date'))
   AND (event_time <= parseDateTimeBestEffort('$end_date'))
-order by event_time desc
-FORMAT JSON
+order by event_time desc;
 ```
 # Query logs table from $start_date to $end_date
 
