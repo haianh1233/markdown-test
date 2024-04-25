@@ -3,7 +3,8 @@ SELECT
     distinct(_batch_compression_type) as type,
     count(*) as total
 FROM `local-kafka`.purchases
-group by _batch_compression_type
+GROUP BY _batch_compression_type
+FORMAT json
 ```
 
 
