@@ -26,7 +26,7 @@ FROM `local-kafka`.purchases
 <Statistic
         data={avg_batch_record_size}
         title='Number'
-        value=avg
+        value="avg"
     >
 </Statistic>
 
