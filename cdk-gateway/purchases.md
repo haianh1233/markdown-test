@@ -4,7 +4,6 @@ SELECT
     count(*) as total
 FROM `local-kafka`.purchases
 GROUP BY _batch_compression_type
-FORMAT JSON
 ```
 
 
@@ -15,7 +14,6 @@ FORMAT JSON
 SELECT
     avg(_batch_records) as avg,
 FROM `local-kafka`.purchases
-FORMAT JSON
 ```
 
 <Flex>
