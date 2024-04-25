@@ -12,3 +12,19 @@ FORMAT JSON
     <Column field="type" header="Compression"></Column>
     <Column field="total" header="Total"></Column>
 </DataTable>
+
+
+
+```sql avg_batch_record_size
+SELECT
+    avg(_batch_records) as avg,
+FROM `local-kafka`.purchases
+FORMAT JSON
+```
+
+<Statistic
+        data={avg_batch_record_size}
+        title='Number'
+        value=avg
+    >
+</Statistic>
