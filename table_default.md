@@ -8,7 +8,9 @@ FROM $topic;
 SELECT
     formatReadableSize(sum(bytes)) as size
 FROM system.parts
-WHERE table = '$cluster.$topic';
+WHERE
+    table = '$topic'
+    AND database = '$cluster'
 ```
 
 
