@@ -1,8 +1,7 @@
 ```sql records_count
 SELECT
     count() AS count
-FROM $topic
-FORMAT JSON;
+FROM $topic;
 ```
 
 ```sql table_size
