@@ -2,7 +2,7 @@
 SELECT
     distinct(_batch_compression_type) as type,
     count(*) as total
-FROM `local-kafka`.purchases
+FROM purchases
 GROUP BY _batch_compression_type
 ```
 
@@ -13,7 +13,7 @@ GROUP BY _batch_compression_type
 ```sql avg_batch_record_size
 SELECT
     avg(_batch_records) as avg,
-FROM `local-kafka`.purchases
+FROM purchases
 ```
 
 <Flex>
