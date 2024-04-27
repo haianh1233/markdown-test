@@ -11,7 +11,7 @@ GROUP BY table
 ```
 
 
-<DataTable value={tables} searchValue=["table"]>
+<DataTable value={tables} searchValue="table,size">
     <Column field="table" header="Table name"></Column>
     <Column field="size" header="Size"></Column>
 </DataTable>
