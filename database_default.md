@@ -1,10 +1,11 @@
 ```sql tables
 SELECT
     table,
-    formatReadableSize(sum(bytes)) as size
+    formatReadableSize(sum(bytes)) as size,
+    formatReadableSize(sum(primary_key_size)) as primary_key_size
 FROM system.parts
 WHERE active AND database != 'system'
-GROUP BY table;
+GROUP BY table
 ```
 
 
