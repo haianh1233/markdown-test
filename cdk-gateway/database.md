@@ -2,7 +2,9 @@
 SELECT
     table,
     formatReadableSize(sum(bytes)) as size,
-    formatReadableSize(sum(primary_key_size)) as primary_key_size
+    formatReadableSize(sum(primary_key_size)) as primary_key_size,
+    max(modification_time) as last_modified,
+    
 FROM system.parts
 WHERE active AND database != 'system'
 GROUP BY table
