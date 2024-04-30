@@ -55,35 +55,25 @@ FROM '$topic'
     <Statistic
             data={table_info}
             title='Total Rows'
-            value=totalRows
-        >
-    </Statistic>
+            value=totalRows/>
     <Statistic
         data={batch}
         title='Average record size'
-        value=avgRecordSize
-    >
-    </Statistic>
+        value=avgRecordSize/>
     <Statistic
             data={table_info}
             title='Bytes On Disk'
-            value=bytesOnDisk
-        >
-    </Statistic>
+            value=bytesOnDisk/>
 </Flex>
 <Flex>
     <Statistic
             data={table_info}
             title='Average Row size'
-            value=averageRowSize
-        >
-    </Statistic>
+            value=averageRowSize/>
     <Statistic
             data={table_info}
             title='Compression Ratio'
-            value=compressionRatio
-        >
-    </Statistic>
+            value=compressionRatio/>
 </Flex>
 
 
@@ -91,42 +81,30 @@ FROM '$topic'
     <Statistic
             data={batch}
             title='Avg batch size'
-            value=avgBatchSize
-        >
-    </Statistic>
+            value=avgBatchSize/>
     <Statistic
             data={batch}
             title='Max batch size'
-            value=maxBatchSize
-        >
-    </Statistic>
+            value=maxBatchSize/>
     <Statistic
             data={batch}
             title='Min batch size'
-            value=minBatchSize
-        >
-    </Statistic>
+            value=minBatchSize/>
 </Flex>
 
 <Flex>
     <Statistic
             data={batch}
             title='Avg records per batch'
-            value=avgRecordsPerBatch
-        >
-    </Statistic>
+            value=avgRecordsPerBatch/>
     <Statistic
             data={batch}
             title='Max records per batch'
-            value=maxRecordsPerBatch
-        >
-    </Statistic>
+            value=maxRecordsPerBatch/>
     <Statistic
             data={batch}
             title='Min records per batch'
-            value=minRecordsPerBatch
-        >
-    </Statistic>
+            value=minRecordsPerBatch/>
 </Flex>
 
 
@@ -134,11 +112,10 @@ FROM '$topic'
         data={batch}
         title='Nb schemas'
         value=nbSchemas
-    >
-</Statistic>
+    />
 
 <Flex>
-    <DataTable value={compression_type}></DataTab>
-    <DataTable value={timestamp_type}></DataTab>
-    <DataTable value={by_schema}></DataTab>
+    <DataTable value={compression_type}></DataTable>
+    <DataTable value={timestamp_type}></DataTable>
+    <DataTable value={by_schema}></DataTable>
 </Flex>
