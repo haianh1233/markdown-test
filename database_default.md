@@ -1,6 +1,7 @@
 ```sql tables
 SELECT
     table AS tableName,
+    sum(rows) AS totalRows,
     formatReadableSize(sum(data_uncompressed_bytes)) AS bytesUncompressed,
     formatReadableSize(sum(bytes_on_disk)) AS bytesOnDisk,
     concat(
