@@ -3,7 +3,7 @@ SELECT
     distinct(_batch_compression_type) as type,
     count(*) as total
 FROM purchases
-GROUP BY _batch_compression_typea
+GROUP BY _batch_compression_type
 ```
 
 
@@ -21,7 +21,7 @@ FROM purchases
 <DataTable value={compression_type}>
     <Column field="type" header="Compression"></Column>
     <Column field="total" header="Total"></Column>
-</DataTable>
+</DataTab>
 
 <Statistic
         data={avg_batch_record_size}
