@@ -18,7 +18,7 @@ WHERE
 SELECT
     distinct(_batch_compression_type) as type,
     count(*) as total
-FROM '$table'
+FROM '$topic'
 GROUP BY _batch_compression_type
 ```
 
