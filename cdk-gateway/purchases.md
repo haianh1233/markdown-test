@@ -16,7 +16,7 @@ WHERE
 
 ```sql compression_type
 SELECT
-    distinct(_batch_compression_type) as type,
+    distinct(_batch_compression_type) as compressionType,
     count(*) as total
 FROM '$topic'
 GROUP BY _batch_compression_type
@@ -24,7 +24,7 @@ GROUP BY _batch_compression_type
 
 ```sql timestamp_type
 SELECT
-    distinct(_batch_timestamp_type) as type,
+    distinct(_batch_timestamp_type) as timestampType,
     count(*) as total
 FROM '$topic'
 GROUP BY _batch_timestamp_type
@@ -65,6 +65,7 @@ FROM '$topic'
             title='Bytes On Disk'
             value=bytesOnDisk></Statistic>
 </Flex>
+
 <Flex>
     <Statistic
             data={table_info}
@@ -108,10 +109,12 @@ FROM '$topic'
 </Flex>
 
 
-<Statistic
-        data={batch}
-        title='Nb schemas'
-        value=nbSchemas></Statistic>
+<Flex>
+    <Statistic
+            data={batch}
+            title='Nb schemas'
+            value=nbSchemas></Statistic>
+</Flex>
 
 <Flex>
     <DataTable value={compression_type}></DataTable>
