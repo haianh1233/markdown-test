@@ -1,5 +1,6 @@
 ```sql tables
 SELECT
+    database,
     table,
     formatReadableSize(sum(bytes)) as size,
     formatReadableSize(sum(primary_key_size)) as primary_key_size,
@@ -12,6 +13,7 @@ GROUP BY table
 
 
 <DataTable value={tables} searchValue="table">
-    <Column field="table" header="Table name"></Column>
+<!--    <Column field="table" header="Table name"></Column>
     <Column field="size" header="Size"></Column>
+    -->
 </DataTable>
