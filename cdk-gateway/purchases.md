@@ -11,7 +11,7 @@ SELECT
 FROM
     system.parts
 WHERE
-    database = '$database' and table  = '$table'
+    database = '$database' and table  = '$topic'
 ```
 
 ```sql compression_type
@@ -26,7 +26,7 @@ GROUP BY _batch_compression_type
 SELECT
     distinct(_batch_timestamp_type) as type,
     count(*) as total
-FROM '$table'
+FROM '$topic'
 GROUP BY _batch_timestamp_type
 ```
 
@@ -34,7 +34,7 @@ GROUP BY _batch_timestamp_type
 SELECT
     distinct(_value_schema_id) as schemaId,
     count(*) as total
-FROM '$table'
+FROM '$topic'
 GROUP BY _value_schema_id
 ```
 
@@ -48,7 +48,7 @@ SELECT
     min(_batch_records) as minRecordsPerBatch,
     formatReadableSize(avg(_batch_size) / avg(_batch_records)) as avgRecordSize,
     count(distinct(_value_schema_id)) as nbSchemas
-FROM '$table'
+FROM '$topic'
 ```
 
 <Flex>
