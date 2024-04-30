@@ -1,11 +1,3 @@
-```sql compression_type
-SELECT
-    distinct(_batch_compression_type) as type,
-    count(*) as total
-FROM purchases
-GROUP BY _batch_compression_type
-```
-
 
 
 
