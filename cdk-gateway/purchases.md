@@ -55,25 +55,25 @@ FROM '$topic'
     <Statistic
             data={table_info}
             title='Total Rows'
-            value=totalRows/>
+            value=totalRows></Statistic>
     <Statistic
-        data={batch}
-        title='Average record size'
-        value=avgRecordSize/>
+            data={batch}
+            title='Average record size'
+            value=avgRecordSize></Statistic>
     <Statistic
             data={table_info}
             title='Bytes On Disk'
-            value=bytesOnDisk/>
+            value=bytesOnDisk></Statistic>
 </Flex>
 <Flex>
     <Statistic
             data={table_info}
             title='Average Row size'
-            value=averageRowSize/>
+            value=averageRowSize></Statistic>
     <Statistic
             data={table_info}
             title='Compression Ratio'
-            value=compressionRatio/>
+            value=compressionRatio></Statistic>
 </Flex>
 
 
@@ -81,38 +81,37 @@ FROM '$topic'
     <Statistic
             data={batch}
             title='Avg batch size'
-            value=avgBatchSize/>
+            value=avgBatchSize></Statistic>
     <Statistic
             data={batch}
             title='Max batch size'
-            value=maxBatchSize/>
+            value=maxBatchSize></Statistic>
     <Statistic
             data={batch}
             title='Min batch size'
-            value=minBatchSize/>
+            value=minBatchSize></Statistic>
 </Flex>
 
 <Flex>
     <Statistic
             data={batch}
             title='Avg records per batch'
-            value=avgRecordsPerBatch/>
+            value=avgRecordsPerBatch></Statistic>
     <Statistic
             data={batch}
             title='Max records per batch'
-            value=maxRecordsPerBatch/>
+            value=maxRecordsPerBatch></Statistic>
     <Statistic
             data={batch}
             title='Min records per batch'
-            value=minRecordsPerBatch/>
+            value=minRecordsPerBatch></Statistic>
 </Flex>
 
 
 <Statistic
         data={batch}
         title='Nb schemas'
-        value=nbSchemas
-    />
+        value=nbSchemas></Statistic>
 
 <Flex>
     <DataTable value={compression_type}></DataTable>
