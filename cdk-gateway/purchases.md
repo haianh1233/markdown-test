@@ -11,7 +11,7 @@ SELECT
 FROM
     system.parts
 WHERE
-    database = '$database' and table  = '$topic'
+    database = '$cluster' and table  = '$topic'
 ```
 
 ```sql compression_type
