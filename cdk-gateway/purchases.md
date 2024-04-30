@@ -1,7 +1,4 @@
 
-
-
-
 ```sql avg_batch_record_size
 SELECT
     avg(_batch_records) as avg,
