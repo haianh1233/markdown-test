@@ -1,19 +1,25 @@
 ```sql tables
 SELECT
-    database,
-    table,
-    formatReadableSize(sum(bytes)) as size,
-    formatReadableSize(sum(primary_key_size)) as primary_key_size,
-    max(modification_time) as last_modified
-
-FROM system.parts
-WHERE active AND database != 'system'
-GROUP BY table
+    table AS tableName,
+    formatReadableSize(sum(data_uncompressed_bytes)) AS bytesUncompressed,
+    formatReadableSize(sum(bytes_on_disk)) AS bytesOnDisk,
+    concat(
+        round(
+            if(sum(bytes_on_disk) > 0, (sum(data_uncompressed_bytes) * 100 / sum(bytes_on_disk)) - 100, 0), 
+            0)
+        , '%') AS compressionRatio,
+    formatReadableSize(sum(primary_key_size)) AS primaryKeySize,
+    max(modification_time) AS lastModified
+FROM
+    system.parts
+WHERE
+    database = '$database'
+GROUP BY
+    table
+ORDER BY
+    sum(bytes_on_disk) DESC    
 ```
 
 
 <DataTable value={tables} searchValue="table">
-<!--    <Column field="table" header="Table name"></Column>
-    <Column field="size" header="Size"></Column>
-    -->
 </DataTable>
