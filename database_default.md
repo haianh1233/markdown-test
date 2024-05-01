@@ -22,5 +22,5 @@ ORDER BY
 ```
 
 
-<DataTable value={tables} searchValue="table">
+<DataTable value={tables} searchValue="tableName">
 </DataTable>
