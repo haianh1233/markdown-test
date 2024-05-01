@@ -23,7 +23,7 @@ ORDER BY
 ```
 
 
-<DataTable name="Tables" value={tables} searchValue="tableName">
+<DataTable title="Tables" value={tables} searchValue="tableName">
 </DataTable>
 
 ```sql avg_query_duration
