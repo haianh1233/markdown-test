@@ -38,3 +38,6 @@ WHERE
 
 I really 
 like using Markdown.
+
+<Sparklines>
+</Sparklines>
