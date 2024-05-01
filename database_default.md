@@ -34,9 +34,9 @@ SELECT
     count() AS count_batches,
     avg(query_duration_ms) AS avg_duration
 FROM clusterAllReplicas(default, system.query_log)
-WHERE (query_kind = 'Select') AND (type != 'QueryStart')       
-  AND (event_time >= parseDateTimeBestEffort('$start_date'))
-  AND (event_time <= parseDateTimeBestEffort('$end_date'))
+WHERE (query_kind = 'Select') AND (type != 'QueryStart')
+  AND (event_time >= now() - INTERVAL 2 HOUR) 
+  AND (event_time <= now())
 GROUP BY event_time_m
 ORDER BY event_time_m ASC ;
 ```
@@ -44,13 +44,13 @@ ORDER BY event_time_m ASC ;
 
 <Flex>
     <LineChart
-        title='Avg Query duration from $start_date to $end_date'
+        title='Avg Query duration'
         data={avg_query_duration}
         x=event_time_m
         y=avg_duration>
     </LineChart>
     <LineChart
-        title='Count batch from $start_date to $end_date'
+        title='Count batch'
         data={avg_query_duration}
         x=event_time_m
         y=count_batches>
