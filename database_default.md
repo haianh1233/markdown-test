@@ -40,7 +40,6 @@ ORDER BY event_time_m ASC ;
 ```
 
 
-<Flex>
     <LineChart
         title='Avg Query duration'
         data={avg_query_duration}
@@ -53,5 +52,4 @@ ORDER BY event_time_m ASC ;
         x=event_time_m
         y=count_batches>
     </LineChart>
-</Flex>
 
