@@ -1,5 +1,3 @@
-<DatePicker></DatePicker>
-format yyyy-mm-dd hh-mm-ss , ie: 2024-04-23 15:44:16
 
 ```sql tables
 SELECT
