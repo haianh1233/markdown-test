@@ -24,3 +24,34 @@ ORDER BY
 
 <DataTable value={tables} searchValue="tableName">
 </DataTable>
+
+```sql avg_query_duration
+SELECT
+    toStartOfMinute(event_time) AS event_time_m,
+    count() AS count_batches,
+    avg(query_duration_ms) AS avg_duration
+FROM clusterAllReplicas(default, system.query_log)
+WHERE (query_kind = 'Select') AND (type != 'QueryStart')       
+  AND (event_time >= parseDateTimeBestEffort('$start_date'))
+  AND (event_time <= parseDateTimeBestEffort('$end_date'))
+GROUP BY event_time_m
+ORDER BY event_time_m ASC ;
+```
+
+
+<Flex>
+    <LineChart
+        title='Avg Query duration from $start_date to $end_date'
+        data={avg_query_duration}
+        x=event_time_m
+        y=avg_duration>
+    </LineChart>
+    <LineChart
+        title='Count batch from $start_date to $end_date'
+        data={avg_query_duration}
+        x=event_time_m
+        y=count_batches>
+    </LineChart>
+
+</Flex>
+
