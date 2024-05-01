@@ -1,3 +1,6 @@
+<DatePicker></DatePicker>
+format yyyy-mm-dd hh-mm-ss , ie: 2024-04-23 15:44:16
+
 ```sql tables
 SELECT
     table AS tableName,
@@ -52,6 +55,5 @@ ORDER BY event_time_m ASC ;
         x=event_time_m
         y=count_batches>
     </LineChart>
-
 </Flex>
 
