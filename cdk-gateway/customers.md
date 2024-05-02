@@ -51,6 +51,11 @@ ORDER BY event_time_m ASC
 ```
 
 <Sparklines data={statistics}>
-    <SparklinesLine title='Insert Count Batches' value=count_batches color='blue'>       </SparklinesLine>
-    <SparklinesLine title='Insert Avg Duration' value=avg_duration color='black'>         </SparklinesLine>
+    <SparklinesLine title='Insert Count Batches' value=count_batches color='blue'>       
+    </SparklinesLine>
+    <SparklinesLine title='Insert Avg Duration' value=avg_duration color='black'>         
+    </SparklinesLine>
 </Sparklines>
+
+<DataTable value={statistics}>
+</DataTable>
