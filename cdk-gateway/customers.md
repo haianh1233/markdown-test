@@ -50,7 +50,7 @@ GROUP BY event_time_m
 ORDER BY event_time_m ASC
 ```
 
-<Sparklines data{statistics}>
+<Sparklines data={statistics}>
     <SparklinesLine title='Insert Count Batches' value=count_batches><SparklinesLine/>
     <SparklinesLine title='Insert Avg Duration' value=avg_duration><SparklinesLine/>
 </Sparklines>
