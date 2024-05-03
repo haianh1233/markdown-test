@@ -59,3 +59,24 @@ ORDER BY event_time_m ASC
 
 <DataTable value={statistics}>
 </DataTable>
+
+```sql insert_batch_and_avg_time
+    SELECT
+    toStartOfInterval(event_time_m, INTERVAL 20 MINUTE) AS event_time_group,
+    groupArray(count_batches) AS count_batches_array,
+    groupArray(avg_duration) AS avg_duration_array
+FROM (
+    SELECT
+        toStartOfMinute(event_time) AS event_time_m,
+        count() AS count_batches,
+        avg(query_duration_ms) AS avg_duration
+    FROM clusterAllReplicas(default, system.query_log)
+    WHERE (query_kind = 'Insert') AND (type != 'QueryStart') AND (event_time > (now() - toIntervalDay(2)))
+    GROUP BY event_time_m
+)
+GROUP BY event_time_group
+ORDER BY event_time_group ASC;
+```
+
+<DataTable title="Tables with Sparklines" value={insert_batch_and_avg_time}>
+</DataTable>
