@@ -1,0 +1,26 @@
+measures:
+  - label: Average Purchase Price
+    expression: AVG(TOTAL_PRICE)
+    description: The average price per product.
+  - label: Total Purchases
+    expression: SUM(TOTAL_QUANTITY)
+    description: The total number of products purchased.
+  - label: Total Revenue
+    expression: SUM(TOTAL_PRICE)
+    description: The total revenue generated from all purchases.
+  - label: Average Purchase Quantity
+    expression: AVG(TOTAL_QUANTITY)
+    description: The average quantity of each product purchased.
+  - label: Revenue Per Product
+    expression: AVG(TOTAL_PRICE) / COUNT(*)
+    description: The revenue generated per product, based on the total number of products purchased.
+  - label: Price Variance
+    expression: AVG(TOTAL_PRICE) - AVG(PREVIOUS TOTAL PRICE)
+    description: The difference in average price between two consecutive time periods.
+  - label: Quantity Sold Per Product
+    expression: AVG(TOTAL_QUANTITY) / COUNT(*)
+    description: The quantity of each product sold, based on the total number of products purchased.
+dimensions:
+  - label: Product Name
+    column: PRODUCT_NAME
+    description: The name of each product.
