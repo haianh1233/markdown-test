@@ -1,0 +1,28 @@
+measures:
+  - label: Total Purchase
+    expression: SUM(TOTAL_PRICE)
+    description: Total purchase value for each product
+  - label: Average Price per Product
+    expression: AVG(TOTAL_PRICE) / TOTAL_QUANTITY
+    description: Average price of one unit of the product
+    format_preset: currency_usd
+  - label: Total Quantity Purchased
+    expression: SUM(TOTAL_QUANTITY)
+    description: Total quantity purchased for each product
+  - label: Purchase Value per Unit
+    expression: TOTAL_PRICE / TOTAL_QUANTITY
+    description: Purchase value per unit of the product
+    format_preset: currency_usd
+  - label: Average Cost per Product
+    expression: AVG(TOTAL_PRICE) / SUM(TOTAL_QUANTITY)
+    description: Average cost of one unit of the product
+    format_preset: currency_usd
+  - label: Total Revenue per Product
+    expression: SUM(TOTAL_PRICE)
+    description: Total revenue generated for each product
+    format_preset: currency_usd
+
+dimensions:
+  - label: Product Name
+    column: PRODUCT_NAME
+    description: Unique name of the product
