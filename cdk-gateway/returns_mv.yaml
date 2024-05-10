@@ -1,0 +1,22 @@
+measures:
+  - label: Total Returns
+    expression: SUM(1)
+    description: Count of all returns
+  - label: Average Return Value
+    expression: AVERAGE(CAST(reason AS FLOAT))
+    description: Mean value of reasons for returns
+  - label: Percentage of Successful Returns
+    expression: COUNTIF(reason = 'Success') / COUNT(*) * 100
+    format_preset: percentage
+  - label: Most Common Reason for Returns
+    expression: RANK(cast(count(*) AS INT), COUNT(*)) OVER (PARTITION BY reason) WITHIN GROUP (ORDER BY count(*) DESC)
+    description: The most common reason for returns
+  - label: Average Time of Return
+    expression: AVERAGE(timestamp)
+    description: Mean time of all returns
+  - label: Total Value of Returned Items
+    expression: SUM(CAST(purchaseId AS FLOAT))
+    format_preset: currency_usd
+  - label: Number of Unique Customers with Returns
+    expression: COUNT(DISTINCT customerId)
+    description: The number of unique customers who have returned items

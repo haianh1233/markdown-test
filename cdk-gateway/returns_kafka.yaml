@@ -1,0 +1,22 @@
+measures:
+  - label: Total Returns
+    expression: COUNT(*)
+    description: Total number of returns
+  - label: Average Return Time
+    expression: AVG(timestamp)
+    description: Average time it takes to make a return
+  - label: Return Rate
+    expression: COUNT(*) / (SELECT COUNT(*) FROM returns_kafka)
+    format_preset: percentage
+    description: Percentage of customers who returned at least one item
+  - label: Return Value
+    expression: SUM(CASE WHEN reason = 'defective' THEN 1 ELSE 0 END)
+    format_preset: currency_usd
+    description: Total value of returns due to defective items
+  - label: Return Reasons
+    expression: COUNT(DISTINCT reason)
+    description: Number of unique return reasons
+  - label: Customer Return Frequency
+    expression: AVG(COUNT(*)) OVER (PARTITION BY customerId ORDER BY timestamp ROWS 3 PRECEDING)
+    format_preset: humanize
+    description: Average number of returns per customer over the past three days

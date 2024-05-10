@@ -1,0 +1,26 @@
+measures:
+  - label: Total Purchases
+    expression: SUM(quantity)
+    description: The total quantity of purchases made by a customer.
+  - label: Average Purchase Value
+    expression: AVG(quantity) * SUM(timestamp)
+    description: The average value of each purchase, calculated by multiplying the quantity with timestamp (assuming timestamp represents price).
+  - label: Most Popular Product
+    expression: COUNT(DISTINCT productId)
+    description: The number of unique products purchased.
+  - label: Customer's Total Spend
+    expression: SUM(quantity) * SUM(timestamp)
+    description: The total amount spent by a customer.
+  - label: Purchase Frequency
+    expression: COUNT(*) / (SELECT COUNT(*) FROM purchases WHERE customerId = ${customerId})
+    description: The frequency of purchases made by a customer, calculated as the number of purchases divided by the total number of purchases for that customer.
+  - label: Average Order Value
+    expression: SUM(quantity) * SUM(timestamp)
+    description: The average value of each order, calculated by multiplying the quantity with timestamp (assuming timestamp represents price).
+  - label: Total Quantity Purchased
+    expression: SUM(quantity)
+    description: The total quantity of products purchased.
+dimensions:
+  - label: Customer ID
+    column: customerId
+    description: Unique identifier for each customer.

@@ -1,0 +1,30 @@
+measures:
+  - label: Total Customers
+    expression: count()
+    description: Count of all customers
+  - label: Average Credit Card Number Length
+    expression: avg(length(profile_creditCardNumber))
+    description: Average length of credit card numbers
+  - label: Unique Countries
+    expression: distinct_count(address_country)
+    description: Count of unique countries
+  - label: Customer Email Distribution
+    expression: histogram(contact_email, 10)
+    description: Histogram of email distribution (10 bins)
+  - label: Credit Card Number Range
+    expression: range(profile_creditCardNumber)
+    description: Range of credit card numbers
+
+dimensions:
+  - label: Profile Name
+    column: profile_name
+    description: Unique name for each customer
+  - label: Job Title
+    column: profile_job_title
+    description: Job title of each customer
+  - label: Blood Group
+    column: profile_blood_group
+    description: Blood group of each customer
+  - label: Country
+    column: address_country
+    description: Country of residence for each customer

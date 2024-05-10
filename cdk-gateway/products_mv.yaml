@@ -1,0 +1,29 @@
+measures:
+  - label: Total Revenue
+    expression: SUM(price)
+    description: The total revenue of all products
+    format_preset: currency_usd
+  - label: Average Price
+    expression: AVG(price)
+    description: The average price per product
+    format_preset: currency_usd
+  - label: Count of Products
+    expression: COUNT()
+    description: The number of unique products
+  - label: Sum of Red Products
+    expression: SUM(IF(color = 'red', price, NULL))
+    description: The total revenue from red products
+  - label: Average Price of Blue Products
+    expression: AVG(IF(color = 'blue', price, NULL))
+    description: The average price per blue product
+  - label: Percentage of Green Products
+    expression: PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY IF(color = 'green', price, NULL)) * 100
+    description: The percentage of total revenue from green products
+
+dimensions:
+  - label: Product Name
+    column: name
+    description: The name of each product
+  - label: Color
+    column: color
+    description: The color of each product

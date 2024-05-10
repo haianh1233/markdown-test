@@ -1,0 +1,27 @@
+measures:
+  - label: Total Purchases
+    expression: SUM(quantity)
+    description: The total number of purchases for a customer
+  - label: Total Amount Spent
+    expression: SUM(quantity * ?)  # assuming product price is unknown, use ?
+    format_preset: currency_usd
+    description: The total amount spent by a customer in USD
+  - label: Average Order Value
+    expression: AVG(quantity * ?)  # same as above
+    format_preset: currency_usd
+    description: The average order value for a customer
+  - label: Total Products Purchased
+    expression: COUNT(DISTINCT productId)
+    description: The total number of unique products purchased by a customer
+  - label: Product Popularity
+    expression: SUM(quantity) / COUNT(DISTINCT productId)
+    format_preset: percentage
+    description: A measure of how popular each product is, based on the number of times it was purchased
+  - label: Customer Frequency
+    expression: COUNT(*) / MAX(timestamp)
+    description: The frequency at which a customer makes purchases
+
+dimensions:
+  - label: Product Name
+    column: productId
+    description: The name or ID of the product purchased

@@ -1,0 +1,29 @@
+measures:
+  - label: Total Value
+    expression: sum(price)
+    description: Total value of all products
+  - label: Average Price
+    expression: avg(price)
+    description: Average price of all products
+  - label: Most Expensive Product
+    expression: max(price)
+    description: The most expensive product in the dataset
+  - label: Cheapest Product
+    expression: min(price)
+    description: The cheapest product in the dataset
+  - label: Number of Products
+    expression: count(*)
+    description: Total number of products in the dataset
+  - label: Highest Price by Color
+    expression: max(by(color, price))
+    description: The highest priced product for each color
+  - label: Average Price by Color
+    expression: avg(by(color, price))
+    description: Average price of products by color
+dimensions:
+  - label: Product Name
+    column: name
+    description: The name of the product
+  - label: Product Color
+    column: color
+    description: The color of the product

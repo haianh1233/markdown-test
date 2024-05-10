@@ -1,0 +1,30 @@
+measures:
+  - label: Total Purchases
+    expression: SUM(quantity)
+    description: The total number of items purchased
+  - label: Average Purchase Quantity
+    expression: AVG(quantity)
+    description: The average quantity per purchase
+  - label: Total Revenue
+    expression: SUM(quantity * 10) // assuming product price is $10
+    format_preset: currency_usd
+    description: The total revenue generated from purchases
+  - label: Purchase Frequency
+    expression: COUNT() / COUNT(DISTINCT customerId)
+    description: The frequency of purchases by customer
+    format_preset: humanize
+  - label: Average Order Value
+    expression: AVG(quantity * 10) // assuming product price is $10
+    format_preset: currency_usd
+    description: The average value of each purchase order
+
+dimensions:
+  - label: Customer
+    column: customerId
+    description: Unique identifier for customers making purchases
+  - label: Product
+    column: productId
+    description: Unique identifier for products being purchased
+  - label: Timestamp
+    column: timestamp
+    description: The timestamp of each purchase event

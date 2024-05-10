@@ -1,0 +1,32 @@
+measures:
+- label: Total Price
+  expression: SUM(price)
+  description: The total price of all products
+  format_preset: currency_usd
+- label: Average Price
+  expression: AVG(price)
+  description: The average price per product
+  format_preset: currency_usd
+- label: Median Price
+  expression: MEDIAN(price)
+  description: The median price per product
+- label: Total Discount
+  expression: SUM(0) - SUM(price)
+  description: The total discount offered by all products
+  format_preset: currency_usd
+- label: Average Discount
+  expression: AVG(0) - AVG(price)
+  description: The average discount per product
+  format_preset: percentage
+- label: Total Products
+  expression: COUNT(*)
+  description: The total number of products
+  format_preset: humanize
+
+dimensions:
+- label: Product Name
+  column: name
+  description: The name of each product
+- label: Color
+  column: color
+  description: The color of each product

@@ -1,0 +1,41 @@
+measures:
+  - label: Total Revenue
+    expression: sum(revenue)
+    description: The total revenue across all dimensions.
+  - label: Average Cost per Unit
+    expression: avg(cost) / count(usage_unit)
+    description: The average cost per unit across all dimensions.
+  - label: Revenue by Environment
+    expression: sum(if(environment, revenue, 0))
+    description: The revenue broken down by environment.
+  - label: Cost by Component
+    expression: sum(if(component, cost, 0))
+    description: The cost broken down by component.
+  - label: Average Revenue per Location
+    expression: avg(revenue) / count(location)
+    description: The average revenue per location across all dimensions.
+  - label: Total Cost
+    expression: sum(cost)
+    description: The total cost across all dimensions.
+  - label: Revenue Growth Rate
+    expression: (sum(revenue) - lag(sum(revenue))) / lag(sum(revenue)) * 100
+    description: The revenue growth rate over time.
+dimensions:
+  - label: Usage Unit
+    column: usage_unit
+  - label: Pipeline
+    column: pipeline
+  - label: Component
+    column: component
+  - label: Company
+    column: company
+  - label: SKU Description
+    column: sku_description
+  - label: App Name
+    column: app_name
+  - label: Environment
+    column: environment
+  - label: Plan Name
+    column: plan_name
+  - label: Location
+    column: location

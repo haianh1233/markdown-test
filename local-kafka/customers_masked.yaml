@@ -1,0 +1,42 @@
+measures:
+- label: Total Customers
+  expression: COUNT()
+  description: Total number of customers
+- label: Average Credit Card Spend
+  expression: AVG(to_number(SPLIT(profile_creditCardNumber, '-')[1]))
+  description: Average credit card spend for each customer
+- label: Most Popular Job Title
+  expression: MAX(profile_job_title)
+  description: The most popular job title among all customers
+- label: Customer Country Distribution
+  expression: GROUPBY(address_country) | COUNT()
+  description: Breakdown of customers by country
+- label: Average Credit Card Spend per Job Title
+  expression: AVG(to_number(SPLIT(profile_creditCardNumber, '-')[1])) BY profile_job_title
+  description: Average credit card spend for each job title
+- label: Blood Group Distribution
+  expression: GROUPBY(profile_blood_group) | COUNT()
+  description: Breakdown of customers by blood group
+- label: Credit Card Number Range
+  expression: MIN(to_number(SPLIT(profile_creditCardNumber, '-')[0])) TO MAX(to_number(SPLIT(profile_creditCardNumber, '-')[0]))
+  description: The range of credit card numbers
+
+dimensions:
+- label: Profile Name
+  column: profile_name
+  description: Unique identifier for each customer
+- label: Job Title
+  column: profile_job_title
+  description: Job title of the customer
+- label: Blood Group
+  column: profile_blood_group
+  description: Blood group of the customer
+- label: Country
+  column: address_country
+  description: Country where the customer resides
+- label: Email
+  column: contact_email
+  description: Primary email address of the customer
+- label: Phone Number
+  column: contact_phone
+  description: Primary phone number of the customer

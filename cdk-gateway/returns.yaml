@@ -1,0 +1,33 @@
+measures:
+  - label: Return Count
+    expression: COUNT()
+    description: Total number of returns
+  - label: Return Percentage
+    expression: COUNT() / (SELECT COUNT(*) FROM returns)
+    description: The percentage of total purchases that are returns
+    format_preset: percentage
+  - label: Average Time To Return
+    expression: AVG(timestamp)
+    description: The average time it takes for a customer to return a purchase
+  - label: Total Value Returned
+    expression: SUM(CASE WHEN reason LIKE 'return%' THEN 1 ELSE 0 END * (SELECT price FROM purchases WHERE id = purchaseId))
+    description: The total value of returns
+    format_preset: currency_usd
+  - label: Customer Return Rate
+    expression: COUNT() / (SELECT COUNT(*) FROM customers WHERE id = customerId)
+    description: The percentage of a customer's purchases that are returned
+    format_preset: percentage
+  - label: Most Common Reason For Returns
+    expression: GROUP_CONCAT(DISTINCT reason, ', ')
+    description: A list of the most common reasons for returns
+
+dimensions:
+  - label: Customer
+    column: customerId
+    description: The customer who made a return
+  - label: Purchase ID
+    column: purchaseId
+    description: The ID of the purchase that was returned
+  - label: Reason
+    column: reason
+    description: The reason for the return

@@ -1,0 +1,41 @@
+measures:
+  - label: Total Price
+    expression: sum(price)
+    description: The total price of all products.
+    format_preset: currency_usd
+  - label: Average Price
+    expression: avg(price)
+    description: The average price per product.
+    format_preset: currency_usd
+  - label: Count of Products
+    expression: count()
+    description: The number of unique products.
+    format_preset: humanize
+  - label: Product Total Value
+    expression: sum(price * quantity)  # assume 'quantity' column exists
+    description: The total value of all products, assuming each product has a quantity attribute.
+    format_preset: currency_usd
+  - label: Unique Colors
+    expression: distinct(color)
+    description: A list of unique colors for the products.
+    format_preset: none
+  - label: Product Price Range
+    expression: range(price)
+    description: The range of prices for all products.
+    format_preset: currency_usd
+  - label: Most Expensive Product
+    expression: max(price)
+    description: The price of the most expensive product.
+    format_preset: currency_usd
+  - label: Cheapest Product
+    expression: min(price)
+    description: The price of the cheapest product.
+    format_preset: currency_usd
+
+dimensions:
+  - label: Color
+    column: color
+    description: A dimension for the 'color' attribute.
+  - label: Name
+    column: name
+    description: A dimension for the 'name' attribute.
