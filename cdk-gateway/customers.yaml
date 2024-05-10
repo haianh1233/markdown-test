@@ -1,0 +1,54 @@
+title: "Customer Unit Economics Dashboard"
+model: "metrics_monitoring"
+timeseries: "__time"
+measures:
+  - label: "Total Cost"
+    expression: "SUM(cost)"
+    name: measure
+    description: "The sum of cost"
+    format_preset: currency_usd
+  - label: "Total Revenue"
+    expression: SUM(revenue)
+    name: total_records
+    description: The sum of revenue
+    format_preset: currency_usd
+  - label: "Net Revenue"
+    expression: "SUM(revenue) - SUM(cost)"
+    name: measure_2
+    description: "The sum of revenue minus the sum of cost"
+    format_preset: currency_usd
+  - label: "Gross Margin %"
+    expression: "(SUM(revenue) - SUM(cost))/SUM(revenue)"
+    name: measure_1
+    description: "Net revenue divided by sum of revenue"
+    format_preset: percentage
+  - label: "Unique Customers"
+    expression: "COUNT(DISTINCT company)"
+    name: measure_3
+    description: "The count of unique companies"
+    format_preset: humanize
+dimensions:
+  - label: Customer
+    column: company
+    description: "The name of the customer"
+  - label: Plan Name
+    column: plan_name
+    description: "The name of the billing plan"
+  - label: "Cost by Region"
+    column: "location"
+    description: "The region incurring costs"
+  - label: Cost by Component
+    column: component
+    description: "The component generating costs"
+  - label: "Cost by App Name"
+    column: "app_name"
+    description: "The app generating costs"
+  - label: "Cost by SKU"
+    column: "sku_description"
+    description: "The sku description for costs"
+  - label: "Cost by Data Pipeline"
+    column: "pipeline"
+    description: "The pipeline incurring costs"
+  - label: "Cost by Environment"
+    column: "environment"
+    description: "The environment incurring costs"
