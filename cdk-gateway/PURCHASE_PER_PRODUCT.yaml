@@ -1,0 +1,26 @@
+measures:
+  - label: Total Purchases
+    expression: SUM(TOTAL_PRICE)
+    description: Total purchases for a product
+  - label: Average Purchase Price
+    expression: AVG(TOTAL_PRICE) / TOTAL_QUANTITY
+    description: Average price per purchase for a product
+  - label: Total Quantity Sold
+    expression: SUM(TOTAL_QUANTITY)
+    description: Total quantity of the product sold
+  - label: Average Purchase Quantity
+    expression: AVG(TOTAL_QUANTITY)
+    description: Average quantity purchased per transaction for a product
+  - label: Revenue Per Product
+    expression: SUM(TOTAL_PRICE) / COUNT(*)
+    description: Revenue generated per product, averaged by the number of transactions
+  - label: Total Revenue
+    expression: SUM(TOTAL_PRICE)
+    description: Total revenue generated from all purchases of a product
+  - label: Cost Per Product
+    expression: AVG(TOTAL_PRICE) / TOTAL_QUANTITY * COUNT(*)
+    description: Average cost per unit of the product, considering all transactions
+dimensions:
+  - label: Product Name
+    column: PRODUCT_NAME
+    description: Unique name for each product
