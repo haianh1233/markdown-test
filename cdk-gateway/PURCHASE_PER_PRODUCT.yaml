@@ -1,0 +1,29 @@
+measures:
+- label: Total Purchase Value
+  expression: TOTAL_PRICE
+  description: The total value of all purchases for a product.
+- label: Average Price per Unit
+  expression: (TOTAL_PRICE / TOTAL_QUANTITY)
+  description: The average price paid for each unit of the product.
+  format_preset: humanize
+- label: Total Quantity Purchased
+  expression: TOTAL_QUANTITY
+  description: The total number of units purchased for a product.
+- label: Average Purchase per Product
+  expression: (TOTAL_QUIANTITY / 1)
+  description: The average number of purchases made for each product.
+- label: Revenue
+  expression: TOTAL_PRICE
+  description: The total revenue generated from sales of the product.
+  format_preset: currency_usd
+- label: Cost per Unit
+  expression: (TOTAL_PRICE / TOTAL_QUANTITY)
+  description: The cost paid for each unit of the product.
+  format_preset: humanize
+- label: Average Purchase Value
+  expression: (TOTAL_PRICE / 1)
+  description: The average value spent on purchasing the product.
+dimensions:
+- label: Product Name
+  column: PRODUCT_NAME
+  description: The name of the product.
