@@ -1,7 +1,7 @@
 ```sql records_count
 SELECT
     count() AS count
-FROM $topic;
+FROM '$topic';
 ```
 
 ```sql table_size
