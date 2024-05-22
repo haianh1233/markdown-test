@@ -1,0 +1,30 @@
+measures:
+  - label: Total Returns
+    expression: COUNT()
+    description: The total number of returns.
+  - label: Average Return Time
+    expression: AVG(timestamp)
+    description: The average time it takes to process a return.
+    format_preset: humanize
+  - label: Mean Reason Length
+    expression: AVG(LENGTH(reason))
+    description: The average length of the reasons for returns.
+  - label: Total Reasons
+    expression: COUNT(DISTINCT reason)
+    description: The total number of distinct reasons for returns.
+  - label: Return Rate
+    expression: COUNT() / COUNT(*, purchaseId IS NOT NULL) * 100
+    description: The percentage of purchases that are returned.
+    format_preset: percentage
+  - label: Median Return Time
+    expression: PERCENTILE(timestamp, 0.5)
+    description: The median time it takes to process a return.
+    format_preset: humanize
+
+dimensions:
+  - label: Customer
+    column: customerId
+    description: The customer making the purchase and returning the item.
+  - label: Purchase
+    column: purchaseId
+    description: The specific purchase being returned.

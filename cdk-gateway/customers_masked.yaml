@@ -1,0 +1,45 @@
+measures:
+  - label: Total Customers
+    expression: COUNT(cast(profile_name as string))
+    description: Number of customers
+  - label: Average Job Title Length
+    expression: AVG(LENGTH(cast(profile_job_title as string)))
+    description: Average length of job titles
+  - label: Most Common Blood Group
+    expression: ARRAY_TO_STRING(ARRAY_AGG(DISTINCT profile_blood_group), ', ')
+    description: Most common blood group among customers
+  - label: Total Credit Card Numbers
+    expression: COUNT(cast(profile_creditCardNumber as string))
+    description: Number of unique credit card numbers
+  - label: Average Email Length
+    expression: AVG(LENGTH(cast(contact_email as string)))
+    description: Average length of email addresses
+  - label: Most Common Country
+    expression: ARRAY_TO_STRING(ARRAY_AGG(DISTINCT address_country), ', ')
+    description: Most common country among customers
+  - label: Average Phone Length
+    expression: AVG(LENGTH(cast(contact_phone as string)))
+    description: Average length of phone numbers
+
+dimensions:
+  - label: Profile Name
+    column: profile_name
+    description: Unique identifier for each customer
+  - label: Job Title
+    column: profile_job_title
+    description: Job title of each customer
+  - label: Blood Group
+    column: profile_blood_group
+    description: Blood group of each customer
+  - label: Credit Card Number
+    column: profile_creditCardNumber
+    description: Unique identifier for credit card numbers
+  - label: Country
+    column: address_country
+    description: Country of residence for each customer
+  - label: Email
+    column: contact_email
+    description: Email address of each customer
+  - label: Phone Number
+    column: contact_phone
+    description: Phone number of each customer

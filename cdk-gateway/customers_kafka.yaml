@@ -1,0 +1,36 @@
+measures:
+  - label: Total Customers
+    expression: COUNT()
+    description: Total number of customers
+  - label: Average Credit Card Balance
+    expression: AVG(CAST(SPLIT(creditCardNumber, '-')[0], 'integer'))
+    description: Average credit card balance (assuming credit card numbers are in the format XXXX-XXXX-XXXX-XXXX)
+  - label: Customer Job Title Distribution
+    expression: COUNT(DISTINCT job_title)
+    description: Number of unique job titles
+  - label: Top Blood Group
+    expression: MAX(blood_group) AS top_blood_group, COUNT(*) AS count
+    description: Most common blood group and the number of customers with that blood group
+  - label: Average Age (approximate)
+    expression: AVG(CAST(SUBSTRING(creditCardNumber, 0, 4), 'integer')) / 100.0
+    description: Approximate average age based on credit card numbers (assuming the first four digits represent the year of birth and the last four digits represent the month and day of birth)
+  - label: Number of Customers per Country
+    expression: COUNT() AS count, country AS country
+    description: Total number of customers by country
+
+dimensions:
+  - label: Job Title
+    column: job_title
+    description: Customer job title
+  - label: Blood Group
+    column: blood_group
+    description: Customer blood group
+  - label: Country
+    column: country
+    description: Customer country
+  - label: Email
+    column: email
+    description: Customer email address
+  - label: Phone Number
+    column: phone
+    description: Customer phone number

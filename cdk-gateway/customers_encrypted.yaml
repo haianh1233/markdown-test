@@ -1,0 +1,34 @@
+measures:
+  - label: Total Customers
+    expression: COUNT()
+    description: Total number of customers
+  - label: Average Credit Card Value
+    expression: AVERAGE(profile_creditCardNumber)
+    description: Average credit card value for all customers
+    format_preset: currency_usd
+  - label: Customer Count by Country
+    expression: COUNT(address_country)
+    description: Number of customers by country
+  - label: Average Phone Length
+    expression: AVERAGE(LENGTH(contact_phone))
+    description: Average length of customer phone numbers
+  - label: Customer Count with Credit Card Information
+    expression: FILTER(COUNT(), profile_creditCardNumber IS NOT NULL)
+    description: Number of customers with credit card information available
+
+dimensions:
+  - label: Profile Job Title
+    column: profile_job_title
+    description: Customers' job titles
+  - label: Country
+    column: address_country
+    description: Countries where customers are located
+  - label: Blood Group
+    column: profile_blood_group
+    description: Blood groups of customers
+  - label: Email
+    column: contact_email
+    description: Customer emails
+  - label: Phone
+    column: contact_phone
+    description: Customer phone numbers

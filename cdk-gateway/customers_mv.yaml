@@ -1,0 +1,33 @@
+measures:
+  - label: Total Customers
+    expression: COUNT(*)
+    description: The total number of customers.
+  - label: Average Age
+    expression: AVG(CASE WHEN profile.blood_group = 'O' THEN 1 ELSE NULL END)
+    description: The average age based on blood group O.
+  - label: Count Unique Email
+    expression: COUNT(DISTINCT contact.email)
+    description: The number of unique email addresses.
+  - label: Total Credit Card Expenses
+    expression: SUM(TO_DOUBLE(0) + REGEXP_REPLACE(contact.phone, '[^0-9]+', '', 'g'))
+    description: The total cost of all credit cards (assuming phone numbers contain card numbers).
+  - label: Count Male Customers
+    expression: COUNT(CASE WHEN profile.job_title LIKE '%male%' THEN 1 ELSE NULL END)
+    description: The number of male customers.
+  - label: Average Credit Card Number Length
+    expression: AVG(LENGTH(contact.phone))
+    description: The average length of a credit card number (assuming phone numbers contain card numbers).
+  - label: Total Customers in Country X
+    expression: COUNT(CASE WHEN address.country = 'X' THEN 1 ELSE NULL END)
+    description: The number of customers residing in country X.
+
+dimensions:
+  - label: Customer Profile
+    column: profile
+    description: A dimension for customer profiles.
+  - label: Contact Information
+    column: contact
+    description: A dimension for contact information.
+  - label: Address
+    column: address
+    description: A dimension for addresses.

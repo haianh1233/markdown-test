@@ -1,0 +1,27 @@
+measures:
+  - label: Total Purchase Value
+    expression: TOTAL_PRICE
+    description: The total value of purchases for each product.
+  - label: Average Purchase Price
+    expression: AVG(TOTAL_PRICE)
+    description: The average price paid per unit of a product.
+  - label: Purchase Quantity
+    expression: TOTAL_QUANTITY
+    description: The number of units purchased for each product.
+  - label: Total Spend
+    expression: SUM(TOTAL_PRICE)
+    description: The total amount spent on a particular product.
+  - label: Average Spend per Unit
+    expression: AVG(TOTAL_PRICE) / AVG(TOTAL_QUANTITY)
+    description: The average cost per unit of a product, taking into account the quantity purchased.
+  - label: Purchase Frequency
+    expression: COUNT(*) / AVG(TOTAL_QUANTITY)
+    description: The frequency at which customers purchase a particular product.
+  - label: Price Per Unit
+    expression: TOTAL_PRICE / TOTAL_QUANTITY
+    description: The price paid per unit of a product.
+
+dimensions:
+  - label: Product Name
+    column: PRODUCT_NAME
+    description: The name of the product being purchased.

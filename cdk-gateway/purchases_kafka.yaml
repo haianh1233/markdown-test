@@ -1,0 +1,26 @@
+measures:
+  - label: Total Purchases
+    expression: SUM(quantity)
+    description: The total quantity of items purchased.
+  - label: Average Purchase Quantity
+    expression: AVG(quantity)
+    description: The average quantity of items purchased per transaction.
+  - label: Total Revenue (USD)
+    expression: SUM(quantity * 1) // Assuming price is unknown, using arbitrary value for revenue calculation
+    format_preset: currency_usd
+    description: The total revenue generated from purchases.
+  - label: Purchase Frequency
+    expression: COUNT()
+    description: The number of transactions made by a customer.
+  - label: Average Order Value (USD)
+    expression: AVG(quantity * 1) // Assuming price is unknown, using arbitrary value for revenue calculation
+    format_preset: currency_usd
+    description: The average value of each purchase transaction.
+  - label: Top Products by Sales
+    expression: COUNT()
+    description: A ranking of products based on the number of purchases made.
+
+dimensions:
+  - label: Customer ID
+    column: customerId
+    description: Unique identifier for each customer.

@@ -1,0 +1,22 @@
+measures:
+  - label: Total Customers
+    expression: COUNT(DISTINCT profile_name)
+  - label: Average Job Title Length
+    expression: AVG(LENGTH(profile_job_title))
+    description: Average length of job title
+  - label: Unique Blood Groups
+    expression: COUNT(DISTINCT profile_blood_group)
+  - label: Customer Credit Card Value
+    expression: SUM(TO_NUMBER(SUBSTRING(profile_creditCardNumber, 1, 4)) * 100 + TO_NUMBER(SUBSTRING(profile_creditCardNumber, 5, 4)) * 10 + TO_NUMBER(SUBSTRING(profile_creditCardNumber, 6, 2)))
+    format_preset: currency_usd
+  - label: Country Distribution
+    expression: COUNT(DISTINCT address_country)
+  - label: Email Active Accounts
+    expression: FILTER(COUNT(contact_email), NOT REGEXP_LIKE(contact_email, '.*@example\.com'))
+  - label: Phone Number Count
+    expression: COUNT(contact_phone)
+
+dimensions:
+  - label: Country
+    column: address_country
+    description: Customer country of residence
