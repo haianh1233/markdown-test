@@ -1,3 +1,5 @@
+## This Table is debezium based
+
 ```sql records_count
 SELECT
     count() AS count
