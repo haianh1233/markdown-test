@@ -2,6 +2,8 @@
 ## This is H2
 ### This is H3
 
+<DatePicker/>
+
 I think I'll use it to format all 
 of my documents from now on.
 
