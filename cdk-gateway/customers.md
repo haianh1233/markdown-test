@@ -83,8 +83,6 @@ ORDER BY event_time_group ASC;
 <DataTable title="Tables with Sparklines 1" value={insert_batch_and_avg_time}>
 </DataTable>
 
-<DatePicker></DatePicker>
-
 <DataTable title="Tables with Sparklines 2" value={insert_batch_and_avg_time}>
  <SparkLines header='Batches Count' field='count_batches_array'></SparkLines>
 </DataTable>
